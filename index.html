@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style/index.css" />
+  </head>
+  <body class="font-josefin w-full h-screen">
+    <div
+      id="contain"
+      class="w-full h-screen max-h-[30vh] p-[30px] bg-white lg:p-[70px] lg:bg-[url('/public/images/bg-desktop-light.jpg')] bg-[url('/public/images/bg-mobile-light.jpg')] bg-no-repeat bg-cover"
+    >
+      <!-- navbar -->
+      <nav
+        id="navbar"
+        class="w-full flex justify-between items-center mx-auto pt-4 lg:w-[550px]"
+      >
+        <span
+          class="text-2xl lg:text-5xl font-semibold tracking-[12px] lg:tracking-[16px] text-white"
+          >TODO</span
+        >
+        <div id="themeBtn" class="cursor-pointer">
+          <!-- Your SVG elements for theme here -->
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="26"
+            height="26"
+            id="moonIcon"
+            class="hidden"
+            viewBox="0 0 26 26"
+          >
+            <path
+              fill="#FFF"
+              fill-rule="evenodd"
+              d="M13 21a1 1 0 011 1v3a1 1 0 11-2 0v-3a1 1 0 011-1zm-5.657-2.343a1 1 0 010 1.414l-2.121 2.121a1 1 0 01-1.414-1.414l2.12-2.121a1 1 0 011.415 0zm12.728 0l2.121 2.121a1 1 0 01-1.414 1.414l-2.121-2.12a1 1 0 011.414-1.415zM13 8a5 5 0 110 10 5 5 0 010-10zm12 4a1 1 0 110 2h-3a1 1 0 110-2h3zM4 12a1 1 0 110 2H1a1 1 0 110-2h3zm18.192-8.192a1 1 0 010 1.414l-2.12 2.121a1 1 0 01-1.415-1.414l2.121-2.121a1 1 0 011.414 0zm-16.97 0l2.121 2.12A1 1 0 015.93 7.344L3.808 5.222a1 1 0 011.414-1.414zM13 0a1 1 0 011 1v3a1 1 0 11-2 0V1a1 1 0 011-1z"
+            />
+          </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="26"
+            height="26"
+            id="sunIcon"
+            class="block text-current"
+            viewBox="0 0 26 26"
+          >
+            <path
+              fill="#FFF"
+              fill-rule="evenodd"
+              d="M13 0c.81 0 1.603.074 2.373.216C10.593 1.199 7 5.43 7 10.5 7 16.299 11.701 21 17.5 21c2.996 0 5.7-1.255 7.613-3.268C23.22 22.572 18.51 26 13 26 5.82 26 0 20.18 0 13S5.82 0 13 0z"
+            />
+          </svg>
+        </div>
+      </nav>
+
+      <!-- main section -->
+      <main class="w-full lg:w-[550px] mx-auto">
+        <!-- form input -->
+        <form id="todoForm" class="relative pt-8 pb-4 items-center flex">
+          <!-- Your input and label elements here -->
+          <input
+            type="text"
+            id="inputForm"
+            class="w-full lg:h-[55px] rounded-md p-2 pl-12 text-[12px] lg:text-[14px] focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="Create a new todo..."
+          />
+
+          <label
+            for="checkbox"
+            class="absolute inset-y-0 left-0 flex justify-center items-center pt-4 px-4"
+          >
+            <input type="checkbox" id="checkbox" class="hidden" />
+            <div
+              class="w-5 h-5 rounded-full relative border border-[#d6d2d2] cursor-pointer"
+            >
+              <div
+                class="text-center fill-white absolute bg-gradient-to-br from-[#758af1] from-50% to-[#ba87ec] via-20% w-5 h-5 rounded-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 icon checkbox-checked opacity-0"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="m-[5px]"
+                  width="11"
+                  height="9"
+                >
+                  <path
+                    fill="none"
+                    stroke="#FFF"
+                    stroke-width="2"
+                    d="M1 4.304L3.696 7l6-6"
+                  />
+                </svg>
+              </div>
+            </div>
+          </label>
+          <!-- <button type="submit" class="hidden"></button> -->
+        </form>
+
+        <!-- list of items -->
+        <section
+          class="w-full lg:mt-4 shadow-xl rounded-b-md rounded-lg bg-white text-gray-600"
+          id="itemsList"
+        >
+          <ul class="rounded-lg text-[12px] lg:text-[14px]" id="ulItems">
+            <!-- Your list items here -->
+          </ul>
+          <div
+            class="flex justify-between items-center p-3 py-4 text-[12px] text-gray-400"
+          >
+            <span id="itemCount"></span>
+            <div
+              class="flex space-x-2 justify-between font-semibold text-[12px]"
+            >
+              <p class="hover:text-gray-900 cursor-pointer active" id="allId">
+                All
+              </p>
+              <p class="hover:text-gray-900 cursor-pointer" id="activeId">
+                Active
+              </p>
+              <p class="hover:text-gray-900 cursor-pointer" id="completedId">
+                Completed
+              </p>
+            </div>
+            <p class="hover:text-gray-900 cursor-pointer" id="clearAllBtn">
+              Clear Completed
+            </p>
+          </div>
+        </section>
+      </main>
+
+      <div
+        class="flex justify-center items-center mt-10 text-md text-gray-400 text-bold"
+      >
+        <p>Drag and Drop to reader list</p>
+      </div>
+      <!-- Additional sections, divs, and scripts -->
+    </div>
+
+    <!-- JavaScript -->
+    <script src="./js/index.js" defer></script>
+    <script src="./js/addTask.js" defer></script>
+  </body>
+</html>
