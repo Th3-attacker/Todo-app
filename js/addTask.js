@@ -211,42 +211,45 @@ document.addEventListener("DOMContentLoaded", () => {
 
 //  drag and drop
 
-document.addEventListener("DOMContentLoaded", function () {
-  const ulItems = document.getElementById("ulItems");
-  let draggedItem = null;
+// document.addEventListener("DOMContentLoaded", function () {
+//   const ulItems = document.getElementById("ulItems");
+//   let draggedItem = null;
 
-  ulItems.addEventListener("dragstart", function (event) {
-    draggedItem = event.target;
-    // Ajouter une classe pour un style visuel (facultatif)
-    event.target.classList.add("dragging");
-  });
+//   ulItems.addEventListener("dragstart", function (event) {
+//     draggedItem = event.target;
+//     // Ajouter une classe pour un style visuel (facultatif)
+//     event.target.classList.add("dragging");
+//   });
 
-  ulItems.addEventListener("dragover", function (event) {
-    event.preventDefault();
-  });
+//   ulItems.addEventListener("dragover", function (event) {
+//     event.preventDefault();
+//   });
 
-  ulItems.addEventListener("dragenter", function (event) {
-    event.preventDefault();
-    if (event.target.tagName === "LI") {
-      event.target.classList.add("dragover");
-    }
-  });
+//   ulItems.addEventListener("dragenter", function (event) {
+//     event.preventDefault();
+//     if (event.target.tagName === "LI") {
+//       event.target.classList.add("dragover");
+//     }
+//   });
 
-  ulItems.addEventListener("dragleave", function (event) {
-    if (event.target.tagName === "LI") {
-      event.target.classList.remove("dragover");
-    }
-  });
+//   ulItems.addEventListener("dragleave", function (event) {
+//     if (event.target.tagName === "LI") {
+//       event.target.classList.remove("dragover");
+//     }
+//   });
 
-  ulItems.addEventListener("drop", function (event) {
-    event.preventDefault();
-    if (event.target.tagName === "LI") {
-      event.target.classList.remove("dragover");
-      ulItems.insertBefore(draggedItem, event.target.nextSibling);
-    }
-    // Supprimer la classe de style visuel (facultatif)
-    ulItems
-      .querySelectorAll("li")
-      .forEach((item) => item.classList.remove("dragging"));
-  });
-});
+//   ulItems.addEventListener("drop", function (event) {
+//     event.preventDefault();
+//     if (event.target.tagName === "LI") {
+//       event.target.classList.remove("dragover");
+//       ulItems.insertBefore(draggedItem, event.target.nextSibling);
+//     }
+//     // Supprimer la classe de style visuel (facultatif)
+//     ulItems
+//       .querySelectorAll("li")
+//       .forEach((item) => item.classList.remove("dragging"));
+//   });
+// });
+
+
+

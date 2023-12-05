@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="./style/index.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.14.0/Sortable.min.js"></script>
+
   </head>
   <body class="font-josefin w-full h-screen">
     <div
@@ -100,7 +102,7 @@
           class="w-full lg:mt-4 shadow-xl rounded-b-md rounded-lg bg-white text-gray-600"
           id="itemsList"
         >
-          <ul class="rounded-lg text-[12px] lg:text-[14px]" id="ulItems">
+          <ul class="listItems rounded-lg text-[12px] lg:text-[14px]" id="ulItems">
             <!-- Your list items here -->
           </ul>
           <div
@@ -138,5 +140,6 @@
     <!-- JavaScript -->
     <script src="./js/index.js" defer></script>
     <script src="./js/addTask.js" defer></script>
+    <script src="./js/dragDrop.js" defer></script>
   </body>
 </html>
