@@ -948,6 +948,11 @@ select {
   background-color: rgb(17 24 39 / var(--tw-bg-opacity));
 }
 
+.bg-black {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+}
+
 .bg-\[url\(\'\/public\/images\/bg-mobile-light\.jpg\'\)\] {
   background-image: url('/public/images/bg-mobile-light.jpg');
 }
@@ -1137,6 +1142,10 @@ select {
 
 .ease-in-out {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.\[z\:\FFFDT\FFFD C\FFFD\8\FFFD\] {
+  z: �T�C��;
 }
 
 .hover\:text-gray-900:hover {

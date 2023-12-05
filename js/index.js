@@ -8,6 +8,8 @@ function applyMode(isDarkMode) {
     const paragraphsListItems = document.querySelectorAll("li p");
     const paragraphsDiv = document.querySelectorAll("div p a");
     const mobileFooter = document.getElementById("mobile-footer");
+    const body = document.body;
+
   
     if (isDarkMode) {
       moonIcon.classList.add("hidden");
@@ -15,8 +17,8 @@ function applyMode(isDarkMode) {
       sunIcon.classList.remove("hidden");
       sunIcon.classList.add("block");
   
-      contain.classList.remove("bg-gray-900");
-      contain.classList.add("bg-white");
+      body.classList.remove("bg-gray-900");
+      body.classList.add("bg-white");
   
       let isMobile = window.innerWidth <= 768;
       const backgroundImage = isMobile ? "url('./public/images/bg-mobile-light.jpg')" : "url('./public/images/bg-desktop-light.jpg')";
@@ -50,8 +52,8 @@ function applyMode(isDarkMode) {
       moonIcon.classList.remove("hidden");
       moonIcon.classList.add("block");
   
-      contain.classList.remove("bg-white");
-      contain.classList.add("bg-gray-900");
+      body.classList.remove("bg-white");
+      body.classList.add("bg-gray-900");
   
       let isMobile = window.innerWidth <= 768;
       const backgroundImage = isMobile ? "url('./public/images/bg-mobile-dark.jpg')" : "url('./public/images/bg-desktop-dark.jpg')";
