@@ -74,14 +74,14 @@ document.addEventListener("DOMContentLoaded", () => {
         "p",
         "cursor-pointer",
         "hover:text-gray-900",
-        "break-word"
+        "break-words"
       );
       paragraph.textContent = item.text;
       paragraph.style.textDecoration = item.completed ? "line-through" : "none";
       paragraph.style.color = item.completed ? "gray" : "";
 
       const deleteBtn = document.createElement("button");
-      deleteBtn.classList.add("min-w-5","min-h-5")
+      deleteBtn.classList.add("flex", "w-6", "h-6","shrink-0");
       const iconDelete = document.createElement("img");
       iconDelete.src = "./public/images/icon-cross.svg";
       deleteBtn.appendChild(iconDelete);
