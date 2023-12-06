@@ -51,12 +51,17 @@ document.addEventListener("DOMContentLoaded", () => {
         "justify-between",
         "items-center",
         "border-b",
-        "border-gray-200"
+        "border-gray-200",
+        "space-x-4"
       );
       li.draggable = "true";
 
       const divLi = document.createElement("div");
       divLi.classList.add("flex", "space-x-4", "items-center");
+
+      const drag = document.createElement("img");
+      drag.src = "./public/images/drag.png";
+      drag.classList.add("h-5", "w-5", "hidden", "hover:block");
 
       const checkbox = document.createElement("input");
       checkbox.type = "checkbox";
@@ -65,22 +70,37 @@ document.addEventListener("DOMContentLoaded", () => {
       checkbox.addEventListener("change", () => toggleComplete(item.id));
 
       const paragraph = document.createElement("p");
-      paragraph.classList.add("p", "cursor-pointer", "hover:text-gray-900");
+      paragraph.classList.add(
+        "p",
+        "cursor-pointer",
+        "hover:text-gray-900",
+        "break-word"
+      );
       paragraph.textContent = item.text;
       paragraph.style.textDecoration = item.completed ? "line-through" : "none";
       paragraph.style.color = item.completed ? "gray" : "";
 
       const deleteBtn = document.createElement("button");
+      deleteBtn.classList.add("min-w-5","min-h-5")
       const iconDelete = document.createElement("img");
       iconDelete.src = "./public/images/icon-cross.svg";
       deleteBtn.appendChild(iconDelete);
       deleteBtn.addEventListener("click", () => deleteItem(item.id));
 
+      divLi.appendChild(drag);
       divLi.appendChild(checkbox);
       divLi.appendChild(paragraph);
 
       li.appendChild(divLi);
       li.appendChild(deleteBtn);
+
+      li.addEventListener("mouseover", () => {
+        drag.classList.remove("hidden"); // Show the icon on hover
+      });
+
+      li.addEventListener("mouseout", () => {
+        drag.classList.add("hidden"); // Hide the icon when not hovered
+      });
 
       ulItems.appendChild(li);
     });
@@ -92,13 +112,12 @@ document.addEventListener("DOMContentLoaded", () => {
     itemCount.textContent = `${count} item${count !== 1 ? "s" : ""} left`;
   }
 
-  // supprimer Tout
+  // supprimer des items Completed
   const clearAllBtn = document.getElementById("clearAllBtn");
   clearAllBtn.addEventListener("click", () => {
-    items = [];
+    items = items.filter((item) => !item.completed);
     renderItems();
-    setActiveButton("");
-    itemCount.textContent = "0 items";
+    updateItemCount();
   });
 
   // le fitre des taches
@@ -130,19 +149,17 @@ document.addEventListener("DOMContentLoaded", () => {
         "justify-between",
         "items-center",
         "border-b",
-        "border-gray-200"
+        "border-gray-200",
+        "space-x-4"
       );
+      li.draggable = "true";
 
       const divLi = document.createElement("div");
       divLi.classList.add("flex", "space-x-4", "items-center");
 
-      const label = document.createElement("label");
-      label.classList.add(
-        "inline-flex",
-        "items-center",
-        "cursor-pointer",
-        "hover:"
-      );
+      const drag = document.createElement("img");
+      drag.src = "./public/images/drag.png";
+      drag.classList.add("h-5", "w-5", "hidden", "hover:block");
 
       const checkbox = document.createElement("input");
       checkbox.type = "checkbox";
@@ -150,23 +167,16 @@ document.addEventListener("DOMContentLoaded", () => {
       checkbox.checked = item.completed;
       checkbox.addEventListener("change", () => toggleComplete(item.id));
 
-    //   const span = document.createElement("span");
-    //   span.classList.add(
-    //     "relative",
-    //     "inline-block",
-    //     "w-5",
-    //     "h-5",
-    //     "border",
-    //     "border-gray-300",
-    //     "transition",
-    //     "duration-300",
-    //     "ease-in-out"
-    //   );
-
       const paragraph = document.createElement("p");
-      paragraph.classList.add("p", "cursor-pointer", "hover:text-gray-900");
+      paragraph.classList.add(
+        "p",
+        "cursor-pointer",
+        "hover:text-gray-900",
+        "break-words"
+      );
       paragraph.textContent = item.text;
       paragraph.style.textDecoration = item.completed ? "line-through" : "none";
+      paragraph.style.color = item.completed ? "gray" : "";
 
       const deleteBtn = document.createElement("button");
       const iconDelete = document.createElement("img");
@@ -174,14 +184,20 @@ document.addEventListener("DOMContentLoaded", () => {
       deleteBtn.appendChild(iconDelete);
       deleteBtn.addEventListener("click", () => deleteItem(item.id));
 
-      label.appendChild(checkbox);
-    //   label.appendChild(span);
-
-      divLi.appendChild(label);
+      divLi.appendChild(drag);
+      divLi.appendChild(checkbox);
       divLi.appendChild(paragraph);
 
       li.appendChild(divLi);
       li.appendChild(deleteBtn);
+
+      li.addEventListener("mouseover", () => {
+        drag.classList.remove("hidden"); // Show the icon on hover
+      });
+
+      li.addEventListener("mouseout", () => {
+        drag.classList.add("hidden"); // Hide the icon when not hovered
+      });
 
       ulItems.appendChild(li);
     });
@@ -198,9 +214,19 @@ document.addEventListener("DOMContentLoaded", () => {
   function setActiveButton(btnId) {
     [allBtn, activeBtn, completedBtn].forEach((btn) => {
       if (btn.id === btnId) {
-        btn.classList.add("active");
+        btn.classList.add(
+          "active",
+          "underline",
+          "underline-offset-4",
+          "text-gray-600"
+        );
       } else {
-        btn.classList.remove("active");
+        btn.classList.remove(
+          "active",
+          "underline",
+          "underline-offset-4",
+          "text-gray-600"
+        );
       }
     });
   }
@@ -208,48 +234,3 @@ document.addEventListener("DOMContentLoaded", () => {
   // Initialisation
   filterItems("all");
 });
-
-//  drag and drop
-
-// document.addEventListener("DOMContentLoaded", function () {
-//   const ulItems = document.getElementById("ulItems");
-//   let draggedItem = null;
-
-//   ulItems.addEventListener("dragstart", function (event) {
-//     draggedItem = event.target;
-//     // Ajouter une classe pour un style visuel (facultatif)
-//     event.target.classList.add("dragging");
-//   });
-
-//   ulItems.addEventListener("dragover", function (event) {
-//     event.preventDefault();
-//   });
-
-//   ulItems.addEventListener("dragenter", function (event) {
-//     event.preventDefault();
-//     if (event.target.tagName === "LI") {
-//       event.target.classList.add("dragover");
-//     }
-//   });
-
-//   ulItems.addEventListener("dragleave", function (event) {
-//     if (event.target.tagName === "LI") {
-//       event.target.classList.remove("dragover");
-//     }
-//   });
-
-//   ulItems.addEventListener("drop", function (event) {
-//     event.preventDefault();
-//     if (event.target.tagName === "LI") {
-//       event.target.classList.remove("dragover");
-//       ulItems.insertBefore(draggedItem, event.target.nextSibling);
-//     }
-//     // Supprimer la classe de style visuel (facultatif)
-//     ulItems
-//       .querySelectorAll("li")
-//       .forEach((item) => item.classList.remove("dragging"));
-//   });
-// });
-
-
-
