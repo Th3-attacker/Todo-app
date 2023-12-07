@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "p",
         "cursor-pointer",
         "hover:text-gray-900",
-        "break-words"
+        "break-all"
       );
       paragraph.textContent = item.text;
       paragraph.style.textDecoration = item.completed ? "line-through" : "none";
@@ -172,7 +172,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "p",
         "cursor-pointer",
         "hover:text-gray-900",
-        "break-words"
+        "break-all"
       );
       paragraph.textContent = item.text;
       paragraph.style.textDecoration = item.completed ? "line-through" : "none";

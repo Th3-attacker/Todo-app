@@ -4,13 +4,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="./style/index.css" />
     <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.14.0/Sortable.min.js"></script>
   </head>
   <body class="font-josefin w-full h-screen">
     <div
       id="contain"
-      class="w-full h-screen max-h-[30vh] p-[30px] bg-white lg:p-[70px] lg:bg-[url('/public/images/bg-desktop-light.jpg')] bg-[url('/public/images/bg-mobile-light.jpg')] bg-no-repeat bg-cover"
+      class="w-full h-screen sm:max-h-[150px] lg:max-h-[280px] p-[30px] lg:p-[70px] bg-[url('./public/images/bg-mobile-light.jpg')] md:bg-[url('./public/images/bg-desktop-light.jpg')] bg-no-repeat"
     >
       <!-- navbar -->
       <nav
@@ -70,14 +77,10 @@
             for="checkbox"
             class="absolute inset-y-0 left-0 flex justify-center items-center pt-4 px-4"
           >
-            
             <div
               class="w-5 h-5 rounded-full relative border border-[#d6d2d2] cursor-pointer"
-            >
-              
-            </div>
+            ></div>
           </label>
-         
         </form>
 
         <!-- list of items -->
