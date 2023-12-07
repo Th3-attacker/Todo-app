@@ -6,7 +6,6 @@
     <title>Document</title>
     <link rel="stylesheet" href="./style/index.css" />
     <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.14.0/Sortable.min.js"></script>
-
   </head>
   <body class="font-josefin w-full h-screen">
     <div
@@ -71,30 +70,14 @@
             for="checkbox"
             class="absolute inset-y-0 left-0 flex justify-center items-center pt-4 px-4"
           >
-            <input type="checkbox" id="checkbox" class="hidden" />
+            
             <div
               class="w-5 h-5 rounded-full relative border border-[#d6d2d2] cursor-pointer"
             >
-              <div
-                class="text-center fill-white absolute bg-gradient-to-br from-[#758af1] from-50% to-[#ba87ec] via-20% w-5 h-5 rounded-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 icon checkbox-checked opacity-0"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="m-[5px]"
-                  width="11"
-                  height="9"
-                >
-                  <path
-                    fill="none"
-                    stroke="#FFF"
-                    stroke-width="2"
-                    d="M1 4.304L3.696 7l6-6"
-                  />
-                </svg>
-              </div>
+              
             </div>
           </label>
-          <!-- <button type="submit" class="hidden"></button> -->
+         
         </form>
 
         <!-- list of items -->
@@ -102,7 +85,10 @@
           class="w-full lg:mt-4 shadow-xl rounded-b-md rounded-lg bg-white text-gray-600"
           id="itemsList"
         >
-          <ul class="listItems rounded-lg text-[12px] lg:text-[14px]" id="ulItems">
+          <ul
+            class="listItems rounded-lg text-[12px] lg:text-[14px]"
+            id="ulItems"
+          >
             <!-- Your list items here -->
           </ul>
           <div

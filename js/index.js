@@ -90,12 +90,3 @@ function applyMode(isDarkMode) {
   const moonIcon = document.getElementById("moonIcon");
   moonIcon.addEventListener("click", () => applyMode(true));
   
-  //   check box for input
-  const checkbox = document.getElementById("checkbox");
-  checkbox.addEventListener("click", function () {
-  const icon = document.querySelector(".icon");
-  const checkIcon = document.querySelector(".checkbox-checked");
-  
-  icon.classList.toggle("opacity-0");
-  checkIcon.classList.toggle("opacity-100");
-  });
