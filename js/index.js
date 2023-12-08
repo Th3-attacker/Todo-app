@@ -1,4 +1,4 @@
-function applyMode(isDarkMode) {
+ function applyMode(isDarkMode) {
   const sunIcon = document.getElementById("sunIcon");
   const moonIcon = document.getElementById("moonIcon");
   const contain = document.getElementById("contain");
@@ -91,7 +91,9 @@ function applyMode(isDarkMode) {
 
     localStorage.setItem("isDarkMode", "false");
   }
-}
+};
+
+;
 
 const sunIcon = document.getElementById("sunIcon");
 sunIcon.addEventListener("click", () => applyMode(false));
@@ -104,4 +106,5 @@ const savedMode = localStorage.getItem("isDarkMode");
 if (savedMode !== null) {
   const isDarkMode = savedMode === "true";
   applyMode(isDarkMode);
+  // document.addEventListener("DOMContentLoaded",applyMode(isDarkMode));
 }
