@@ -3,119 +3,152 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Todo App</title>
+    <link
+      rel="shortcut icon"
+      href="./public/images/favicon-32x32.png"
+      type="image/x-icon"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
     <link rel="stylesheet" href="./style/index.css" />
     <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.14.0/Sortable.min.js"></script>
   </head>
-  <body class="font-josefin w-full h-screen">
-   <div id="contain" class="min-w-min md:max-h-[230px] lg:max-h-[330px] ms:max-h-[200px] object-contain bg-no-repeat ms:bg-[url('/public/images/bg-desktop-light.jpg')] bg-[url('/public/images/bg-mobile-light.jpg')] mx-auto p-6 lg:p-12">
-    <div  class="w-[327px] lg:w-[540px] md:pt-8 mx-auto">
-      <nav
-        id="navbar"
-        class="w-full flex justify-between items-center mx-auto pt-4"
-      >
-        <span
-          class="text-2xl lg:text-5xl font-semibold tracking-[12px] lg:tracking-[16px] text-white"
-          >TODO</span
+  <body class="font-josefin w-full h-screen dark:bg-gray-900">
+    <div
+      id="contain"
+      class="min-w-min md:max-h-[230px] lg:max-h-[330px] ms:max-h-[200px] object-contain bg-no-repeat ms:bg-light-desktop dark:ms:bg-dark-desktop bg-light-mobile dark:bg-dark-mobile  mx-auto p-6 lg:p-12"
+    >
+      <div class="w-[327px] lg:w-[540px] md:pt-8 mx-auto">
+        <nav
+          id="navbar"
+          class="w-full flex justify-between items-center mx-auto pt-4"
         >
-        <div id="themeBtn" class="cursor-pointer">
-          <!-- Your SVG elements for theme here -->
-          <button class="hidden" id="moonIcon">
-            <img src="./public/images/icon-moon.svg" alt="" />
-          </button>
-          <button class="block text-current" id="sunIcon">
-            <img src="./public/images/icon-sun.svg" alt="" />
-          </button>
-        </div>
-      </nav>
-
-      <!-- main section -->
-      <main class="mt-3">
-        <!-- form input -->
-        <form id="todoForm" class="relative pt-8 pb-4 items-center flex">
-          <!-- Your input and label elements here -->
-          <input
-            type="text"
-            id="inputForm"
-            class="w-full lg:h-[55px] border-gray-300 rounded-md p-2 pl-12 text-[12px] lg:text-[14px] focus:outline-none focus:ring-2 focus:ring-blue-500"
-            placeholder="Create a new todo..."
-          />
-
-          <label
-            for="checkbox"
-            class="absolute inset-y-0 left-0 flex justify-center items-center pt-4 px-4"
+          <span
+            class="text-2xl lg:text-5xl font-semibold tracking-[12px] lg:tracking-[16px] text-gray-100"
+            >TODO</span
           >
-            <div
-              class="w-5 h-5 rounded-full relative border border-[#d6d2d2]"
-            ></div>
-          </label>
-        </form>
+          <div id="themeBtn" class="cursor-pointer">
+            <!-- Your SVG elements for theme here -->
+            <button class="block dark:hidden" id="moon-icon">
+              <img src="./public/images/icon-moon.svg" alt="" />
+            </button>
+            <button class="hidden dark:block" id="sun-icon">
+              <img src="./public/images/icon-sun.svg" alt="" />
+            </button>
+          </div>
+        </nav>
 
-        <!-- list of items -->
-        <section
-          class="w-full lg:mt-4 shadow-xl rounded-b-md rounded-lg bg-white text-gray-600 mb-4"
-          id="itemsList"
-        >
-          <ul
-            class="listItems rounded-lg text-[12px] lg:text-[14px]"
-            id="ulItems"
-          >
-            <!-- Your list items here -->
-          </ul>
-          <div 
-            class="flex justify-between items-center p-3 py-4 text-[12px] text-gray-400"
-          >
-            <span id="itemCount">no items left</span>
-            <div
-              class="lg:flex space-x-2 justify-between font-semibold text-[12px] hidden"
+        <!-- main section -->
+        <main class="mt-3">
+          <!-- form input -->
+          <form id="todoForm" class="relative pt-8 pb-4 items-center flex">
+            <!-- Your input and label elements here -->
+            <input
+              type="text"
+              id="inputForm"
+              class="w-full lg:h-[55px] border-gray-200 dark:border-gray-600 rounded-md p-2 pl-12 text-[12px] lg:text-[14px] focus:outline-none focus:ring-2 focus:ring-blue-300 dark:bg-gray-700"
+              placeholder="Create a new todo..."
+            />
+
+            <label
+              for="checkbox"
+              class="absolute inset-y-0 left-0 flex justify-center items-center pt-4 px-4"
             >
-              <p class="hover:text-gray-900 cursor-pointer active" id="allId">
-                All
-              </p>
-              <p class="hover:text-gray-900 cursor-pointer" id="activeId">
-                Active
-              </p>
-              <p class="hover:text-gray-900 cursor-pointer" id="completedId">
-                Completed
+              <div
+                class="w-5 h-5 rounded-full relative border border-gray-200 dark:border-gray-400"
+              ></div>
+            </label>
+          </form>
+
+          <!-- list of items -->
+          <section
+            class="w-full lg:mt-4 shadow-xl rounded-b-md rounded-lg bg-white dark:bg-gray-700 text-gray-600 dark:text-gray-200 mb-4"
+            id="itemsList"
+          >
+            <ul
+              class="listItems rounded-lg text-[12px] lg:text-[14px]"
+              id="ulItems"
+            >
+              <!-- Your list items here -->
+            </ul>
+            <div
+              class="flex justify-between items-center p-3 py-4 text-[12px] text-gray-400 dark:text-gray-300"
+            >
+              <span id="itemCount">no items left</span>
+              <div
+                class="lg:flex space-x-2 justify-between font-semibold text-[12px] hidden"
+              >
+                <p
+                  class="hover:text-gray-800 dark:hover:text-gray-200 cursor-pointer active"
+                  id="allId"
+                >
+                  All
+                </p>
+                <p
+                  class="hover:text-gray-800 dark:hover:text-gray-200 active:text-gray-600 dark:active:text-gray-300 cursor-pointer"
+                  id="activeId"
+                >
+                  Active
+                </p>
+                <p
+                  class="hover:text-gray-800 dark:hover:text-gray-200 active:text-gray-600 dark:active:text-gray-300 cursor-pointer"
+                  id="completedId"
+                >
+                  Completed
+                </p>
+              </div>
+              <p
+                class="hover:text-gray-800 dark:hover:text-gray-200 active:text-gray-600 dark:active:text-gray-300 cursor-pointer"
+                id="clearAllBtn"
+              >
+                Clear Completed
               </p>
             </div>
-            <p class="hover:text-gray-900 cursor-pointer" id="clearAllBtn">
-              Clear Completed
+          </section>
+
+          <div
+            id="mobile-footer"
+            class="flex space-x-2 items-center justify-center font-semibold text-gray-400 dark:text-gray-200 shadow-xl text-[12px] bg-white dark:bg-gray-700 rounded-md p-2 lg:hidden"
+          >
+            <p
+              class="hover:text-gray-900 dark:hover:text-gray-200 active:text-gray-600 dark:active:text-gray-300 cursor-pointer active"
+              id="allIdMb"
+            >
+              All
+            </p>
+            <p
+              class="hover:text-gray-900 dark:hover:text-gray-200 active:text-gray-600 dark:active:text-gray-300 cursor-pointer"
+              id="activeIdMb"
+            >
+              Active
+            </p>
+            <p
+              class="hover:text-gray-900 dark:hover:text-gray-200 active:text-gray-600 dark:active:text-gray-300 cursor-pointer"
+              id="completedIdMb"
+            >
+              Completed
             </p>
           </div>
-        </section>
+        </main>
 
-        <div id="isMobileFooter"
-          class="flex space-x-2 items-center justify-center font-semibold text-gray-400 shadow-xl text-[12px] bg-white rounded-md p-2 lg:hidden"
+        <div
+          class="flex justify-center items-center mt-10 text-md text-gray-400 text-bold"
         >
-          <p class="hover:text-gray-900 cursor-pointer active" id="allIdMb">
-            All
-          </p>
-          <p class="hover:text-gray-900 cursor-pointer" id="activeIdMb">Active</p>
-          <p class="hover:text-gray-900 cursor-pointer" id="completedIdMb">
-            Completed
-          </p>
+          <p>Drag and Drop to reader list</p>
         </div>
-      </main>
-
-      <div
-        class="flex justify-center items-center mt-10 text-md text-gray-400 text-bold"
-      >
-        <p>Drag and Drop to reader list</p>
+        <!-- Additional sections, divs, and scripts -->
       </div>
-      <!-- Additional sections, divs, and scripts -->
     </div>
-  </div>
     <!-- JavaScript -->
-    <script src="./js/index.js" defer></script>
+
     <script src="./js/addTask.js" defer></script>
+    <script src="./js/switchMode.js" defer></script>
     <script src="./js/dragDrop.js" defer></script>
   </body>
 </html>
