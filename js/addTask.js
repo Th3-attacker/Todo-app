@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
       li.classList.add(
         "single-item",
         "cursor-move",
-        "p-4",
+        "px-4",
         "py-4",
         "lg:py-6",
         "flex",
@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
       li.draggable = "true";
 
       const divLi = document.createElement("div");
-      divLi.classList.add("flex", "space-x-4", "items-center");
+      divLi.classList.add("flex", "items-center", "space-x-4");
 
       const drag = document.createElement("img");
       drag.src = "./public/images/drag.png";
@@ -65,15 +65,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const checkbox = document.createElement("input");
       checkbox.type = "checkbox";
-      checkbox.classList.add("rounded-full", "w-5", "h-5");
+      checkbox.style.marginRight = "10px";
+      checkbox.style.marginLeft = "10px";
+      checkbox.classList.add(
+        "rounded-full",
+        "w-5",
+        "h-5",
+        "border-gray-200",
+        "dark:border:gray-500",
+        "dark:text-gray-600"
+      );
       checkbox.checked = item.completed;
       checkbox.addEventListener("change", () => toggleComplete(item.id));
 
       const paragraph = document.createElement("p");
+      paragraph.style.marginTop = "0.25rem";
       paragraph.classList.add(
         "p",
         "cursor-pointer",
         "hover:text-gray-900",
+        "dark:hover:text-gray-200",
         "break-all"
       );
       paragraph.textContent = item.text;
@@ -81,7 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
       paragraph.style.color = item.completed ? "gray" : "";
 
       const deleteBtn = document.createElement("button");
-      deleteBtn.classList.add("flex", "w-6", "h-6","shrink-0");
+      deleteBtn.classList.add("flex", "w-6", "h-6", "shrink-0");
       const iconDelete = document.createElement("img");
       iconDelete.src = "./public/images/icon-cross.svg";
       deleteBtn.appendChild(iconDelete);
@@ -142,7 +153,7 @@ document.addEventListener("DOMContentLoaded", () => {
       li.classList.add(
         "single-item",
         "cursor-move",
-        "p-4",
+        "px-4",
         "py-4",
         "lg:py-6",
         "flex",
@@ -155,7 +166,7 @@ document.addEventListener("DOMContentLoaded", () => {
       li.draggable = "true";
 
       const divLi = document.createElement("div");
-      divLi.classList.add("flex", "space-x-4", "items-center");
+      divLi.classList.add("flex", "items-center", "space-x-4");
 
       const drag = document.createElement("img");
       drag.src = "./public/images/drag.png";
@@ -163,22 +174,35 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const checkbox = document.createElement("input");
       checkbox.type = "checkbox";
-      checkbox.classList.add("rounded-full", "w-5", "h-5");
+      checkbox.style.marginRight = "10px";
+      checkbox.style.marginLeft = "10px";
+      checkbox.classList.add(
+        "rounded-full",
+        "w-5",
+        "h-5",
+        "border-gray-200",
+        "dark:border:gray-500",
+        "dark:text-gray-600"
+      );
       checkbox.checked = item.completed;
       checkbox.addEventListener("change", () => toggleComplete(item.id));
 
       const paragraph = document.createElement("p");
+      paragraph.style.marginTop = "0.25rem";
+      // paragraph.style.overflowWrap = "break-word";
+      paragraph.style.wordBreak = "break-all";
       paragraph.classList.add(
         "p",
         "cursor-pointer",
         "hover:text-gray-900",
-        "break-all"
+        "dark:hover:text-gray-200"
       );
       paragraph.textContent = item.text;
       paragraph.style.textDecoration = item.completed ? "line-through" : "none";
       paragraph.style.color = item.completed ? "gray" : "";
 
       const deleteBtn = document.createElement("button");
+      deleteBtn.classList.add("flex", "w-6", "h-6", "shrink-0");
       const iconDelete = document.createElement("img");
       iconDelete.src = "./public/images/icon-cross.svg";
       deleteBtn.appendChild(iconDelete);
@@ -214,19 +238,12 @@ document.addEventListener("DOMContentLoaded", () => {
   function setActiveButton(btnId) {
     [allBtn, activeBtn, completedBtn].forEach((btn) => {
       if (btn.id === btnId) {
-        btn.classList.add(
-          "active",
-          "underline",
-          "underline-offset-4",
-          "text-gray-600"
-        );
+        btn.classList.add("active", "text-gray-600", "dark:text-gray-300");
+        btn.style.textUnderlineOffset = "6px";
+        btn.style.textDecoration = "underline";
       } else {
-        btn.classList.remove(
-          "active",
-          "underline",
-          "underline-offset-4",
-          "text-gray-600"
-        );
+        btn.classList.remove("active", "text-gray-600", "dark:text-gray-300");
+        btn.style.textDecoration = "none";
       }
     });
   }
