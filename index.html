@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="font-josefin">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -15,138 +15,119 @@
       href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
     <link rel="stylesheet" href="./style/index.css" />
     <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.14.0/Sortable.min.js"></script>
   </head>
-  <body class="font-josefin w-full h-screen dark:bg-gray-900">
-    <div
-      id="contain"
-      class="min-w-min md:max-h-[230px] lg:max-h-[330px] ms:max-h-[200px] object-contain bg-no-repeat ms:bg-light-desktop dark:ms:bg-dark-desktop bg-light-mobile dark:bg-dark-mobile mx-auto p-6 lg:p-12"
+  <body
+    class="dark:bg-gray-900 ms:bg-light-desktop bg-light-mobile dark:ms:bg-dark-desktop dark:bg-dark-mobile w-full bg-no-repeat bg-top ms:bg-cover object-contain min-w-min md:max-h-[230px] ms:max-h-[200px] h-screen mx-auto p-6 lg:p-12"
+    id="container"
+  >
+    <!-- navbar -->
+    <nav
+      id="navbar"
+      class="flex justify-between items-center w-[327px] lg:w-[540px] mx-auto"
     >
-      <div class="w-[327px] lg:w-[540px] md:pt-8 mx-auto">
-        <nav
-          id="navbar"
-          class="w-full flex justify-between items-center mx-auto pt-4"
+      <span
+        class="text-2xl lg:text-5xl font-semibold tracking-[12px] lg:tracking-[16px] text-gray-100"
+        >TODO</span
+      >
+      <!-- Your SVG elements for theme here -->
+      <div id="themeBtn" class="cursor-pointer">
+        <!-- moon icon  -->
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="26"
+          height="26"
+          class="block dark:hidden"
+          id="moon-icon"
         >
-          <span
-            class="text-2xl lg:text-5xl font-semibold tracking-[12px] lg:tracking-[16px] text-gray-100"
-            >TODO</span
-          >
-          <div id="themeBtn" class="cursor-pointer">
-            <!-- Your SVG elements for theme here -->
-            <button class="block dark:hidden" id="moon-icon">
-              <img src="./public/images/icon-moon.svg" alt="" />
-            </button>
-            <button class="hidden dark:block" id="sun-icon">
-              <img src="./public/images/icon-sun.svg" alt="" />
-            </button>
-          </div>
-        </nav>
+          <path
+            fill="#FFF"
+            fill-rule="evenodd"
+            d="M13 0c.81 0 1.603.074 2.373.216C10.593 1.199 7 5.43 7 10.5 7 16.299 11.701 21 17.5 21c2.996 0 5.7-1.255 7.613-3.268C23.22 22.572 18.51 26 13 26 5.82 26 0 20.18 0 13S5.82 0 13 0z"
+          />
+        </svg>
+        <!-- sun icon -->
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="26"
+          height="26"
+          class="hidden dark:block"
+          id="sun-icon"
+        >
+          <path
+            fill="#FFF"
+            fill-rule="evenodd"
+            d="M13 21a1 1 0 011 1v3a1 1 0 11-2 0v-3a1 1 0 011-1zm-5.657-2.343a1 1 0 010 1.414l-2.121 2.121a1 1 0 01-1.414-1.414l2.12-2.121a1 1 0 011.415 0zm12.728 0l2.121 2.121a1 1 0 01-1.414 1.414l-2.121-2.12a1 1 0 011.414-1.415zM13 8a5 5 0 110 10 5 5 0 010-10zm12 4a1 1 0 110 2h-3a1 1 0 110-2h3zM4 12a1 1 0 110 2H1a1 1 0 110-2h3zm18.192-8.192a1 1 0 010 1.414l-2.12 2.121a1 1 0 01-1.415-1.414l2.121-2.121a1 1 0 011.414 0zm-16.97 0l2.121 2.12A1 1 0 015.93 7.344L3.808 5.222a1 1 0 011.414-1.414zM13 0a1 1 0 011 1v3a1 1 0 11-2 0V1a1 1 0 011-1z"
+          />
+        </svg>
+      </div>
+    </nav>
 
-        <!-- main section -->
-        <main class="mt-3">
-          <!-- form input -->
-          <form id="todoForm" class="relative pt-8 pb-4 items-center flex">
-            <!-- Your input and label elements here -->
-            <input
-              type="text"
-              id="inputForm"
-              class="w-full lg:h-[55px] border-gray-200 dark:border-gray-600 rounded-md p-2 pl-12 text-[12px] lg:text-[14px] focus:outline-none focus:ring-2 focus:ring-blue-300 dark:bg-gray-700"
-              placeholder="Create a new todo..."
-            />
+    <!-- main -->
+    <main class="w-[327px] lg:w-[540px] mx-auto" id="main">
+      <form id="todoForm" class="pt-5 pb-4 items-center flex">
+        <!-- Your input and label elements here -->
+        <label
+          class="w-5 h-5 rounded-full absolute mx-4 border border-gray-200 dark:border-gray-400"
+        ></label>
+        <input
+          type="text"
+          id="inputForm"
+          class="w-full lg:h-[55px] border-gray-200 mt-1 dark:border-gray-600 rounded-md p-2 pl-12 text-[12px] lg:text-[14px] focus:outline-none focus:ring-2 focus:ring-blue-300 dark:bg-gray-700 bg-gray-50"
+          placeholder="Create a new todo..."
+        />
+      </form>
 
-            <label
-              for="checkbox"
-              class="absolute inset-y-0 left-0 flex justify-center items-center pt-4 px-4"
-            >
-              <div
-                class="w-5 h-5 rounded-full relative border border-gray-200 dark:border-gray-400"
-              ></div>
-            </label>
-          </form>
-
-          <!-- list of items -->
-          <section
-            class="w-full lg:mt-4 shadow-xl rounded-b-md rounded-lg bg-white dark:bg-gray-700 text-gray-600 dark:text-gray-200 mb-4"
-            id="itemsList"
-          >
-            <ul
-              class="listItems rounded-lg text-[12px] lg:text-[14px]"
-              id="ulItems"
-            >
-              <!-- Your list items here -->
-            </ul>
-            <div
-              class="flex justify-between items-center p-3 py-4 text-[12px] text-gray-400 dark:text-gray-300"
-            >
-              <span id="itemCount">no items left</span>
-              <div
-                class="lg:flex space-x-2 justify-between font-semibold text-[12px] hidden"
-              >
-                <p
-                  class="allcls hover:text-gray-800 dark:hover:text-gray-200 cursor-pointer active"
-                  id="allId"
-                >
-                  All
-                </p>
-                <p
-                  class="activecls hover:text-gray-800 dark:hover:text-gray-200 active:text-gray-600 dark:active:text-gray-300 cursor-pointer"
-                  id="activeId"
-                >
-                  Active
-                </p>
-                <p
-                  class="completedcls hover:text-gray-800 dark:hover:text-gray-200 active:text-gray-600 dark:active:text-gray-300 cursor-pointer"
-                  id="completedId"
-                >
-                  Completed
-                </p>
-              </div>
-              <p
-                class="hover:text-gray-800 dark:hover:text-gray-200 active:text-gray-600 dark:active:text-gray-300 cursor-pointer"
-                id="clearAllBtn"
-              >
-                Clear Completed
-              </p>
-            </div>
-          </section>
-
+      <!-- section -->
+      <section
+        class="w-full lg:mt-4 shadow-xl rounded-b-md rounded-lg bg-white dark:bg-gray-700 text-gray-600 dark:text-gray-200 mb-4"
+        id="itemsList"
+      >
+        <ul
+          class="listItems rounded-lg text-[12px] lg:text-[14px]"
+          id="ulItems"
+        >
+          <!-- Your list items here -->
+        </ul>
+        <!-- footer section  -->
+        <div
+          class="relative flex justify-between items-center p-3 py-4 text-[12px] text-gray-400 dark:text-gray-300 mx-auto"
+        >
+          <span id="itemCount" class="relative">no items left</span>
           <div
-            id="mobile-footer"
-            class="flex space-x-2 items-center justify-center font-semibold text-gray-400 dark:text-gray-200 shadow-xl text-[12px] bg-white dark:bg-gray-700 rounded-md p-2 lg:hidden"
+            id="footer-items"
+            class="shadow-xl flex absolute tablet:space-x-4 space-x-8 p-3 rounded-md justify-center font-semibold text-[12px] tablet:top-0 top-16 tablet:bg-transparent tablet:shadow-none bg-gray-50 dark:bg-gray-700 w-[300px] tablet:relative"
           >
             <p
-              class="allcls hover:text-gray-900 dark:hover:text-gray-200 active:text-gray-600 dark:active:text-gray-300 cursor-pointer active"
-              id="allIdMb"
+              class="hover:text-gray-800 dark:hover:text-gray-200 cursor-pointer active"
+              id="allId"
             >
               All
             </p>
             <p
-              class="activecls hover:text-gray-900 dark:hover:text-gray-200 active:text-gray-600 dark:active:text-gray-300 cursor-pointer"
-              id="activeIdMb"
+              class="hover:text-gray-800 dark:hover:text-gray-200 active:text-gray-600 dark:active:text-gray-300 cursor-pointer"
+              id="activeId"
             >
               Active
             </p>
             <p
-              class="completedcls hover:text-gray-900 dark:hover:text-gray-200 active:text-gray-600 dark:active:text-gray-300 cursor-pointer"
-              id="completedIdMb"
+              class="hover:text-gray-800 dark:hover:text-gray-200 active:text-gray-600 dark:active:text-gray-300 cursor-pointer"
+              id="completedId"
             >
               Completed
             </p>
           </div>
-        </main>
-
-        <div
-          class="flex justify-center items-center mt-10 text-md text-gray-400 text-bold"
-        >
-          <p>Drag and Drop to reader list</p>
+          <p
+            class="relative hover:text-gray-800 dark:hover:text-gray-200 active:text-gray-600 dark:active:text-gray-300 cursor-pointer"
+            id="clearAllBtn"
+          >
+            Clear Completed
+          </p>
         </div>
-        <!-- Additional sections, divs, and scripts -->
-      </div>
-    </div>
+      </section>
+    </main>
     <!-- JavaScript -->
-
     <script src="./js/addTask.js" defer></script>
     <script src="./js/switchMode.js" defer></script>
     <script src="./js/dragDrop.js" defer></script>

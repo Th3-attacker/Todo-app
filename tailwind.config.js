@@ -16,8 +16,11 @@ module.exports = {
         laptop: "1024px",
         // => @media (min-width: 1024px) { ... }
 
-        desktop: "1280px",
+        desktop: "1440px",
         // => @media (min-width: 1280px) { ... }
+
+        tv: "1441px",
+        // => @media (min-width: 1440) { ... }
       },
       backgroundImage: {
         'light-desktop': "url('/public/images/bg-desktop-light.jpg')",
