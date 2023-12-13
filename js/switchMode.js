@@ -19,5 +19,20 @@ document.addEventListener("DOMContentLoaded", function () {
   if (isDarkMode) {
     html.classList.add("dark");
   }
-  
 });
+
+
+function showDragIcon(element) {
+  var dragIcon = element.querySelector('img');
+  if (dragIcon) {
+    dragIcon.classList.remove('hidden');
+  }
+}
+
+// Fonction pour masquer l'icône de drag quand le survol se termine
+function hideDragIcon(element) {
+  var dragIcon = element.querySelector('img');
+  if (dragIcon) {
+    dragIcon.classList.add('hidden');
+  }
+}
