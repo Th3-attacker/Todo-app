@@ -64,7 +64,12 @@
         </svg>
       </div>
     </nav>
-
+    <div
+      id="alertMessage"
+      class="hidden absolute top-2 left-0 w-50 ml-4 p-2 bg-red-300 text-white border rounded-ml"
+    >
+      <p>Please enter a valid value !</p>
+    </div>
     <!-- main -->
     <main class="w-[327px] lg:w-[540px] mx-auto" id="main">
       <form id="todoForm" class="pt-5 pb-4 items-center flex">
@@ -75,7 +80,7 @@
         <input
           type="text"
           id="inputForm"
-          class=" w-full lg:h-[55px] dark:text-gray-50 border-gray-200 mt-1 dark:border-gray-600 rounded-md p-2 pl-12 text-[12px] lg:text-[14px] focus:outline-none focus:ring-2 focus:ring-blue-300 dark:bg-gray-700 bg-gray-50"
+          class="w-full lg:h-[55px] dark:text-gray-50 border-gray-200 mt-1 dark:border-gray-600 rounded-md p-2 pl-12 text-[12px] lg:text-[14px] focus:outline-none focus:ring-2 focus:ring-blue-300 dark:bg-gray-700 bg-gray-50"
           placeholder="Create a new todo..."
         />
       </form>
@@ -90,42 +95,6 @@
           id="ulItems"
         >
           <!-- Your list items here -->
-          <li
-            class="relative single-item cursor-move px-4 py-4 lg:py-6 flex justify-between items-center border-b border-gray-200 dark:border-gray-600 space-x-4"
-            onmouseover="showDragIcon(this)"
-            onmouseout="hideDragIcon(this)"
-          >
-            <!-- Icon Drag -->
-            <img
-              src="./public/images/icon-drag.svg"
-              alt="Drag Icon"
-              class="right-1 h-5 w-5 absolute left-0 hidden"
-            />
-            <div class="flex items-center space-x-4">
-              <!-- Checkbox -->
-              <input
-                type="checkbox"
-                class="rounded-full w-5 h-5 bg-transparent hover:border-blue-500 cursor-pointer  text-blue-300"
-              />
-              <!-- Text -->
-              <p class="break-all cursor-pointer">
-                Hellogjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjh
-              </p>
-            </div>
-            <!-- Icon Cross -->
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="18"
-              height="18"
-              class="cursor-pointer hover:opacity-70 shrink-0"
-            >
-              <path
-                fill="#494C6B"
-                fill-rule="evenodd"
-                d="M16.97 0l.708.707L9.546 8.84l8.132 8.132-.707.707-8.132-8.132-8.132 8.132L0 16.97l8.132-8.132L0 .707.707 0 8.84 8.132 16.971 0z"
-              />
-            </svg>
-          </li>
         </ul>
         <!-- footer section  -->
         <div
@@ -143,24 +112,19 @@
               All
             </p>
             <p
-              class="hover:text-gray-800 dark:hover:text-gray-200 active:text-gray-600 dark:active:text-gray-300 cursor-pointer"
+              class="hover:text-gray-800 dark:hover:text-gray-200 cursor-pointer"
               id="activeId"
             >
               Active
             </p>
             <p
-              class="hover:text-gray-800 dark:hover:text-gray-200 active:text-gray-600 dark:active:text-gray-300 cursor-pointer"
+              class="hover:text-gray-800 dark:hover:text-gray-200 cursor-pointer"
               id="completedId"
             >
               Completed
             </p>
           </div>
-          <p
-            class="relative hover:text-gray-800 dark:hover:text-gray-200 active:text-gray-600 dark:active:text-gray-300 cursor-pointer"
-            id="clearAllBtn"
-          >
-            Clear Completed
-          </p>
+          <button class="relative" id="clear-completed">Clear Completed</button>
         </div>
       </section>
     </main>
@@ -170,8 +134,8 @@
       <p>Drag and Drop to reader list</p>
     </div>
     <!-- JavaScript -->
-    <!-- <script src="./js/addTask.js" defer></script> -->
+    <script src="./js/addTask.js" defer></script>
     <script src="./js/switchMode.js" defer></script>
-    <!-- <script src="./js/dragDrop.js" defer></script> -->
+    <script src="./js/dragDrop.js" defer></script>
   </body>
 </html>
