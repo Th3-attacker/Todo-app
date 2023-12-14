@@ -172,6 +172,19 @@ document.addEventListener("DOMContentLoaded", function () {
     filterItems("all"); // Appliquer le filtre "all" après avoir supprimé les éléments complétés
     setActiveButton("allId");
   });
+
+  function toggleComplete(id) {
+    items = items.map((item) => {
+      if (item.id === id) {
+        item.completed = !item.completed;
+      }
+      return item;
+    });
+    saveToLocalStorage();
+    renderItems();
+    toggleClearButton(); // Met à jour l'état du bouton Clear Completed
+  }
+  
   // regarde si ya un item completed
   function toggleClearButton() {
     const completedItems = items.some((item) => item.completed); // Check if there are completed items
