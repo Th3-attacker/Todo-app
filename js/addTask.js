@@ -69,6 +69,7 @@ document.addEventListener("DOMContentLoaded", function () {
     items.forEach((item) => {
       // create a li element
       const li = document.createElement("li");
+      li.setAttribute("id","li");
       li.classList.add(
         "relative",
         "single-item",
